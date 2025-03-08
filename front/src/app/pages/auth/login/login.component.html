@@ -1,0 +1,26 @@
+<div class="login" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="login-card">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title>Se connecter</mat-card-title>
+    </mat-card-header>
+
+    <form class="login-form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center stretch">
+      <mat-card-content fxLayout="column" fxLayoutGap="15px">
+        <mat-form-field appearance="outline" floatLabel="always" class="full-width">
+          <mat-label>E-mail ou nom d'utilisateur</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput type="password">
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" type="submit" class="full-width">Se connecter</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
