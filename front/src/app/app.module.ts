@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const materialModule = [
   MatButtonModule,
@@ -30,6 +31,7 @@ const materialModule = [
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    FlexLayoutModule,
     ...materialModule
   ],
   providers: [],
