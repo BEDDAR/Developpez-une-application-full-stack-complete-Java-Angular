@@ -6,8 +6,16 @@
   flex-direction: column;
 }
 
-.buton-spacing {
-margin-left: 40px;
-margin-right: 40px;
-border: 1px;
+.button-bordered {
+  border: 2px solid black;
+  padding: 5px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  min-width: 80px;
+  width: 150px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
