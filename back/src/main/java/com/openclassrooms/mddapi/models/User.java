@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
@@ -50,6 +51,10 @@ public class User {
 
   @NonNull
   private boolean admin;
+
+  @ManyToOne
+  @JoinColumn(name = "theme_id")
+  private Theme theme;
 
   @CreatedDate
   @Column(name = "created_at", updatable = false)

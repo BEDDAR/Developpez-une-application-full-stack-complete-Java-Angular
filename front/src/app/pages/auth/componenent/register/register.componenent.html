@@ -1,10 +1,10 @@
-<div class="login" fxLayout="column" fxLayoutAlign="center center">
+<div class="register" fxLayout="column" fxLayoutAlign="center center">
   <span fxFlex="0 1 400px" fxLayout="column" fxLayoutAlign="center center">
     <mat-card-header fxLayoutAlign="center center" class="header-spacing">
       <mat-card-title>Inscription</mat-card-title>
     </mat-card-header>
 
-    <form (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center stretch">
+    <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center stretch">
       <mat-card-content fxLayout="column" fxLayoutGap="10px">
         <span fxLayout="column" fxLayoutGap="1px">
           <label>Nom d'utilisateur</label>

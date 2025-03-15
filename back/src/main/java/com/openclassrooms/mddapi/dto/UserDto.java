@@ -1,6 +1,7 @@
 package com.openclassrooms.mddapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.openclassrooms.mddapi.models.Theme;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,8 @@ public class UserDto {
     @JsonIgnore
     @Size(max = 120)
     private String password;
+
+    private Theme theme;
 
     private LocalDateTime createdAt;
 

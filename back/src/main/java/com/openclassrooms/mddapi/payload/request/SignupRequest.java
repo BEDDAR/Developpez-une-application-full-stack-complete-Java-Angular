@@ -2,6 +2,7 @@ package com.openclassrooms.mddapi.payload.request;
 
 import javax.validation.constraints.*;
 
+import com.openclassrooms.mddapi.models.Theme;
 import lombok.Data;
 
 @Data
