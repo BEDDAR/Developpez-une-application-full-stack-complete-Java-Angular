@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/auth/componenent/login/login.component';
 import { RegisterComponent } from './pages/auth/componenent/register/register.componenet';
+import { ThemeListComponent } from './pages/theme/theme.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,7 +31,7 @@ const materialModule = [
 ]
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent, ThemeListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

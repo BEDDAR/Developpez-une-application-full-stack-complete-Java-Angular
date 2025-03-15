@@ -4,16 +4,16 @@
       <mat-card-title>Se connecter</mat-card-title>
     </mat-card-header>
 
-    <form (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center stretch">
+    <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center stretch">
       <mat-card-content fxLayout="column" fxLayoutGap="20px">
         <span fxLayout="column" fxLayoutGap="1px">
           <label>E-mail ou nom d'utilisateur</label>
-          <input class="input-field">
+          <input class="input-field" formControlName="email">
         </span>
 
         <span fxLayout="column" fxLayoutGap="1px">
           <label>Mot de passe</label>
-          <input type="password" class="input-field">
+          <input type="password" class="input-field" formControlName="password">
         </span>
 
       </mat-card-content>

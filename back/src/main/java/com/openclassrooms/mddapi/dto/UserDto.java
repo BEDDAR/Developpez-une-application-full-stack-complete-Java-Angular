@@ -24,11 +24,7 @@ public class UserDto {
 
     @NonNull
     @Size(max = 20)
-    private String lastName;
-
-    @NonNull
-    @Size(max = 20)
-    private String firstName;
+    private String userName;
 
     @NonNull
     private boolean admin;
