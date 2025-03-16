@@ -1,10 +1,11 @@
+import { Theme } from "./theme.interface";
 
 export interface SessionInformation {
   token: string;
   type: string;
   id: number;
   username: string;
-  firstName: string;
-  lastName: string;
+  email: string;
   admin: boolean;
+  themes: Theme[];
 }

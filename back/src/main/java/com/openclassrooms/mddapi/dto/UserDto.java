@@ -10,6 +10,7 @@ import lombok.NonNull;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -33,7 +34,7 @@ public class UserDto {
     @Size(max = 120)
     private String password;
 
-    private Theme theme;
+    private Set<Theme> themes;
 
     private LocalDateTime createdAt;
 

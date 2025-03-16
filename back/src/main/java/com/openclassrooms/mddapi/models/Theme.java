@@ -1,5 +1,7 @@
 package com.openclassrooms.mddapi.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.mapstruct.control.MappingControl;
@@ -8,6 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -34,8 +37,9 @@ public class Theme {
     @Size(max = 2500)
     private String description;
 
-    @OneToMany(mappedBy = "theme", cascade = CascadeType.MERGE) //Permet d'associer des utilisateurs existants à un thème sans les recréer ou les supprimer
-    Set<User> abonnes;
+    @ManyToMany(mappedBy = "themes") // Relation bidirectionnelle
+    @JsonIgnore // Ignorer cette relation lors de la sérialisation
+    private Set<User> abonnes = new HashSet<>();
 
     @OneToMany(mappedBy = "theme")
     private List<Article> articles;

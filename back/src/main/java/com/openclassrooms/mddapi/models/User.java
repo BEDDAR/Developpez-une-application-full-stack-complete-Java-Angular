@@ -1,5 +1,7 @@
 package com.openclassrooms.mddapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -10,7 +12,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
@@ -37,7 +41,7 @@ public class User {
 
   @NonNull
   @Size(max = 20)
-  @Column(name = "last_name")
+  @Column(name = "user_name")
   private String userName;
 
   @NonNull
@@ -47,9 +51,13 @@ public class User {
   @NonNull
   private boolean admin;
 
-  @ManyToOne
-  @JoinColumn(name = "theme_id")
-  private Theme theme;
+  @ManyToMany
+  @JoinTable(
+          name = "user_theme", // Nom de la table intermédiaire
+          joinColumns = @JoinColumn(name = "user_id"), // Clé étrangère vers User
+          inverseJoinColumns = @JoinColumn(name = "theme_id") // Clé étrangère vers Theme
+  )
+  private Set<Theme> themes = new HashSet<>();
 
   @CreatedDate
   @Column(name = "created_at", updatable = false)
