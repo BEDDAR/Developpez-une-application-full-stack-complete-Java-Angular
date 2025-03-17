@@ -6,6 +6,5 @@ export interface SessionInformation {
   id: number;
   username: string;
   email: string;
-  admin: boolean;
-  themes: Theme[];
+  admin: boolean
 }

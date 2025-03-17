@@ -10,8 +10,10 @@
           </p>
         </mat-card-content>
         <mat-card-actions fxLayoutAlign="center">
-          <button mat-raised-button color="primary" (click)="abonner(theme)" >S'abonner </button>
+          <button *ngIf="(isAbonne(theme)|async)===false"  mat-raised-button color="primary" (click)="abonner(theme)" >S'abonner </button>
+          <button *ngIf="(isAbonne(theme)|async)===true" mat-raised-button color="primary" (click)="desabonner(theme)" >Déjà abonné </button>
         </mat-card-actions>
+        <div style="color: black;">{{ isAbonne(theme) | async }}</div>
       </mat-card>
     </div>
 </div>

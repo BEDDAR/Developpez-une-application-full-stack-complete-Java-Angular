@@ -2,12 +2,10 @@ package com.openclassrooms.mddapi.controllers;
 
 import com.openclassrooms.mddapi.mappers.UserMapper;
 import com.openclassrooms.mddapi.models.User;
-import com.openclassrooms.mddapi.payload.request.UpdetedUderRequest;
-import com.openclassrooms.mddapi.security.services.UserDetailsImpl;
+import com.openclassrooms.mddapi.payload.request.UpdetedUserRequest;
 import com.openclassrooms.mddapi.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -43,19 +41,18 @@ public class UserController {
         }
     }
 
-    @PutMapping()
-    public ResponseEntity<?> updateUser(@RequestBody UpdetedUderRequest updatedUser) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateUser(@PathVariable("id") String id, @RequestBody UpdetedUserRequest updatedUser) {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (authentication != null && authentication.isAuthenticated()) {
-
-            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-            User updated = userService.updateUser(userDetails.getId(), updatedUser);
+            User updated = userService.updateUser(id, updatedUser);
             return ResponseEntity.ok(updated);
-        }
+    }
 
-        return new ResponseEntity<>("Failed to update user", HttpStatus.BAD_REQUEST);
+    @PutMapping("/desabonner/{id}")
+    public ResponseEntity<?> desabonnerUser(@PathVariable("id") String id, @RequestBody UpdetedUserRequest updatedUser) {
+
+        User updated = userService.desabonnerUser(id, updatedUser);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("{id}")

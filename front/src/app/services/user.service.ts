@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { SessionInformation } from '../interfaces/sessionInformation.interface';
+import { Theme } from '../interfaces/theme.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,12 @@ export class UserService {
     return this.httpClient.delete(`${this.pathService}/${id}`);
   }
 
-  public update(user: SessionInformation): Observable<any> {
-    return this.httpClient.put(this.pathService, user)
+  public update(id:number|undefined,theme:Theme): Observable<any> {
+    return this.httpClient.put(`${this.pathService}/${id}`, {"theme":theme})
+  }
+
+
+  public desabonner(id:number|undefined,theme:Theme): Observable<any> {
+    return this.httpClient.put(`${this.pathService}/desabonner/${id}`, {"theme":theme})
   }
 }
