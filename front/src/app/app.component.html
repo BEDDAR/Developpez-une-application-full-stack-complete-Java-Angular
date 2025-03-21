@@ -1,6 +1,14 @@
-<span *ngIf="!isHomePage" >
-  <div fxLayout="row" fxLayoutAlign="start center">
+<span *ngIf="!isHomePage">
+  <div fxLayout="row" fxLayoutAlign="space-between center" style="padding: 20px;height: 100px;">
     <img src="/assets/logo_p6.png" alt="logo" routerLink="/" style="max-width: 150px; max-height: 150px;" />
+    <div *ngIf="isLogged$|async" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <div fxLayout="row" fxLayoutGap="20px">
+        <a class="lien" style="color: red;">Se déconnecter</a>
+        <a class="lien" routerLink="articles">Articles</a>
+        <a class="lien" routerLink="themes">Thèmes</a>
+      </div>
+      <mat-icon routerLink="me" class="custom-icon ">account_circle</mat-icon>
+    </div>
   </div>
   <hr />
 </span>

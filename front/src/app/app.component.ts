@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from './pages/auth/services/auth.service';
+import { Observable, of } from 'rxjs';
 import { SessionService } from './services/session.service';
 
 @Component({
@@ -11,9 +10,8 @@ import { SessionService } from './services/session.service';
 })
 export class AppComponent {
   isHomePage: boolean = false;
-
+  isLogged$: Observable<boolean> = of(false);
   constructor(
-    private authService: AuthService,
     private router: Router,
     private sessionService: SessionService) {
   }
@@ -24,6 +22,7 @@ export class AppComponent {
     this.router.events.subscribe(() => {
       this.isHomePage = this.router.url === '/'; // La route d'accueil est '/'
     });
+    this.isLogged$ = this.$isLogged();
   }
 
   public $isLogged(): Observable<boolean> {

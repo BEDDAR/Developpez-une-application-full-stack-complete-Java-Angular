@@ -19,6 +19,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ArticleListComponent } from './pages/article/list/listArticle.component'
+import { ArticleformComponent } from './pages/article/formArticle/formArticle.componenet'
+import { ArticleDetailComponent } from './pages/article/detail/detail.componenent'
+import { MeComponent } from './components/me/me.component';
 
 const materialModule = [
   MatButtonModule,
@@ -31,7 +35,9 @@ const materialModule = [
 ]
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent, ThemeListComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent, ThemeListComponent, ArticleListComponent
+    , ArticleformComponent, ArticleDetailComponent, MeComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
