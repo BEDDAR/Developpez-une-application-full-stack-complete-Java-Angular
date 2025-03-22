@@ -35,7 +35,7 @@ const materialModule = [
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
-  MatSidenavModule
+  MatSidenavModule,
 ]
 
 @NgModule({

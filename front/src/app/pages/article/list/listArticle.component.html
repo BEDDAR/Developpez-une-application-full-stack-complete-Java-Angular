@@ -7,8 +7,8 @@
     </span>
   </div>
 
-  <div class="items mt2" fxLayout="row wrap" fxLayout.lt-md="column">
-    <mat-card class="item" *ngFor="let article of (articles$ | async)" fxFlex>
+  <div class="items" fxLayout="row wrap" fxLayout.lt-md="column">
+    <mat-card [ngClass.lt-md]="'mobile-item'"  [ngClass.gt-sm]="'item'" *ngFor="let article of (articles$ | async)" fxFlex>
       <mat-card-header>
         <mat-card-title>{{ article.titre }}</mat-card-title>
       </mat-card-header>
