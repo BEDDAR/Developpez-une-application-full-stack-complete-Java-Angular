@@ -1,0 +1,13 @@
+.list {
+  margin: 20px;
+
+  .items {
+    gap: 1rem;
+
+    .item {
+      min-width: 500px;
+      //background-color: rgba(175, 175, 175, 0.824);
+      background-color: rgb(212, 212, 212);
+    }
+  }
+}

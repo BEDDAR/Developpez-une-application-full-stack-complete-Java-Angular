@@ -16,7 +16,7 @@ const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'register', component: RegisterComponent },
 { path: 'themes', component: ThemeListComponent },
 { path: 'articles', component: ArticleListComponent },
-{ path: 'create', component: ArticleformComponent },
+{ path: 'articles/create', component: ArticleformComponent },
 { path: 'article/:id', component: ArticleDetailComponent },
 { path: 'me', component: MeComponent }
 ];

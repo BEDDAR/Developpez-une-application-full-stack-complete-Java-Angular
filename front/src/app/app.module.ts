@@ -23,6 +23,7 @@ import { ArticleListComponent } from './pages/article/list/listArticle.component
 import { ArticleformComponent } from './pages/article/formArticle/formArticle.componenet'
 import { ArticleDetailComponent } from './pages/article/detail/detail.componenent'
 import { MeComponent } from './components/me/me.component';
+import {MatSelectModule} from '@angular/material/select';
 
 const materialModule = [
   MatButtonModule,
@@ -31,7 +32,8 @@ const materialModule = [
   MatSnackBarModule,
   MatToolbarModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSelectModule
 ]
 
 @NgModule({

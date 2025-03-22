@@ -12,15 +12,15 @@ export class ArticleService {
 
   constructor(private htttpClient: HttpClient) { }
 
-  public create(article: Article) {
-    this.htttpClient.post(this.pathService, article)
+  public create(article: Article): Observable<Article> {
+    return this.htttpClient.post<Article>(this.pathService, article)
   }
 
   public getarticles(): Observable<Article[]> {
     return this.htttpClient.get<Article[]>(this.pathService)
   }
 
-public getArticle(id:string):Observable<Article>{
-  return this.htttpClient.get<Article>(`${this.pathService}/${id}`)
-}
+  public getArticle(id: string): Observable<Article> {
+    return this.htttpClient.get<Article>(`${this.pathService}/${id}`)
+  }
 }
