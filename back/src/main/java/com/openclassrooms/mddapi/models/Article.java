@@ -37,6 +37,7 @@ public class Article {
     @JoinColumn(name = "auteur_id", referencedColumnName = "id")
     private User auteur;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "theme_id", nullable = false)
     private Theme theme;

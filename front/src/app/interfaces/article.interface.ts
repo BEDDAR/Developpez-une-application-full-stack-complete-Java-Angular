@@ -8,6 +8,6 @@ export interface Article {
   contenu: string;
   auteur: User;
   theme: Theme;
-  commentaires: Commentaire;
+  commentaires: Commentaire[];
   createdAt: Date;
 }

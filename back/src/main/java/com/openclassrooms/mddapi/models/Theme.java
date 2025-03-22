@@ -41,6 +41,7 @@ public class Theme {
     @JsonIgnore // Ignorer cette relation lors de la sérialisation
     private Set<User> abonnes = new HashSet<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "theme")
     private List<Article> articles;
 }
