@@ -24,6 +24,7 @@ import { ArticleformComponent } from './pages/article/formArticle/formArticle.co
 import { ArticleDetailComponent } from './pages/article/detail/detail.componenent'
 import { MeComponent } from './components/me/me.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 const materialModule = [
   MatButtonModule,
@@ -33,7 +34,8 @@ const materialModule = [
   MatToolbarModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatSidenavModule
 ]
 
 @NgModule({

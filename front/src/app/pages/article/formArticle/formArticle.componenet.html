@@ -1,28 +1,32 @@
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start" style="margin-top: 20px ;" fxLayoutGap="10px">
 
-<div>
-  <h1 style="text-align: center;">Créer un nouvel article</h1>
-  <form *ngIf="articleForm" [formGroup]="articleForm" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center" style="width: 50%; margin: auto;">
+  <mat-icon onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
+  <div fxLayout="column" fxFlexAlign="center"  style="flex: 1;">
+    <h1 fxLayoutAlign.gt-sm="center center" fxFlexAlign="center" style="font-size: 30px;">Créer un nouvel article</h1>
+    <form *ngIf="articleForm" [formGroup]="articleForm" (ngSubmit)="submit()" fxLayout="column"
+      fxLayoutAlign="center center" style="width: 50%; margin: auto;">
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Sélectionner un thème</mat-label>
-      <mat-select disableRipple formControlName="theme">
-        <mat-option *ngFor="let theme of (themes$ | async)" [value]="theme">
-          {{ theme.titre }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Sélectionner un thème</mat-label>
+        <mat-select disableRipple formControlName="theme">
+          <mat-option *ngFor="let theme of (themes$ | async)" [value]="theme">
+            {{ theme.titre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <input matInput placeholder="Titre de l'article" formControlName="titre">
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <input matInput placeholder="Titre de l'article" formControlName="titre">
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <textarea matInput placeholder="Contenu de l'Article" formControlName="contenu"></textarea>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <textarea matInput placeholder="Contenu de l'Article" style="height: 120px;"
+          formControlName="contenu"></textarea>
+      </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="articleForm?.invalid">
-      Créer
-    </button>
-  </form>
-
+      <button mat-raised-button color="primary" type="submit" [disabled]="articleForm.invalid">
+        Créer
+      </button>
+    </form>
+  </div>
 </div>

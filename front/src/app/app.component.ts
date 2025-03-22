@@ -13,6 +13,7 @@ export class AppComponent {
   isLoginPage: boolean = false;
   isRegisterPage: boolean = false;
   isLogged$: Observable<boolean> = of(false);
+  showFiller = false;
   constructor(
     private router: Router,
     private sessionService: SessionService) {

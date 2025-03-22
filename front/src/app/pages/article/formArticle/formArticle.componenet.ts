@@ -3,7 +3,7 @@ import { SessionService } from './../../../services/session.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Theme } from 'src/app/interfaces/theme.interface';
 import { ThemeService } from './../../../services/theme.service';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,ViewEncapsulation } from "@angular/core";
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Article } from 'src/app/interfaces/article.interface';
@@ -13,6 +13,7 @@ import { ArticleService } from 'src/app/services/article.service';
   selector: 'app-home',
   templateUrl: './formArticle.componenet.html',
   styleUrls: ['./formArticle.componenet.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ArticleformComponent implements OnInit {
   public articleForm: FormGroup | undefined;
