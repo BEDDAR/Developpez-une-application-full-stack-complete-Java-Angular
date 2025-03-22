@@ -1,11 +1,19 @@
-<div class="register" fxLayout="column" fxLayoutAlign="center center">
-  <span fxFlex="0 1 400px" fxLayout="column" fxLayoutAlign="center center">
-    <mat-card-header fxLayoutAlign="center center" class="header-spacing">
-      <mat-card-title>Inscription</mat-card-title>
-    </mat-card-header>
+<span fxHide.lt-md>
+  <div style="padding: 20px;height: 80px;">
+    <img src="/assets/logo_p6.png" alt="logo" routerLink="/" style="max-width: 150px; max-height: 150px;" />
+  </div>
+  <hr />
+</span>
 
-    <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center stretch">
-      <mat-card-content fxLayout="column" fxLayoutGap="10px">
+<div>
+  <mat-icon onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
+  <div fxHide.gt-sm class="logo-center">
+    <img src="/assets/logo_p6.png" alt="logo" routerLink="/" style="max-width: 200px; max-height: 200px;" />
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h1>Inscription</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <span fxLayout="column" fxLayoutGap="10px">
         <span fxLayout="column" fxLayoutGap="1px">
           <label>Nom d'utilisateur</label>
           <input class="input-field" formControlName="userName">
@@ -21,11 +29,10 @@
           <input type="password" class="input-field" formControlName="password">
         </span>
 
-      </mat-card-content>
+      </span>
 
-      <mat-card-actions fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px;">
-        <button mat-raised-button color="primary" type="submit" fxFlex="0 1 100%">S'inscrire</button>
-      </mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" style="width: 100px;">S'inscrire</button>
+
     </form>
-  </span>
+  </div>
 </div>

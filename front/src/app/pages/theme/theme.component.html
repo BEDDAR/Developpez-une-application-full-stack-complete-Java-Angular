@@ -11,9 +11,8 @@
         </mat-card-content>
         <mat-card-actions fxLayoutAlign="center">
           <button *ngIf="!checkAbonnement(theme)" mat-raised-button color="primary" (click)="abonner(theme)" >S'abonner </button>
-          <button *ngIf="checkAbonnement(theme)" mat-raised-button color="primary" (click)="desabonner(theme)" >Déjà abonné </button>
+          <button *ngIf="checkAbonnement(theme)" mat-raised-button style="background-color: grey; color: white;" (click)="desabonner(theme)" >Déjà abonné </button>
         </mat-card-actions>
-        <div style="color: black;">{{checkAbonnement(theme) }}</div>
       </mat-card>
     </div>
 </div>

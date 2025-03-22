@@ -1,26 +1,35 @@
-<div class="login" fxLayout="column" fxLayoutAlign="center center">
-  <span fxFlex="0 1 400px" fxLayout="column" fxLayoutAlign="center center">
-    <mat-card-header fxLayoutAlign="center center" class="header-spacing">
-      <mat-card-title>Se connecter</mat-card-title>
-    </mat-card-header>
+<span fxHide.lt-md>
+  <div style="padding: 20px;height: 80px;">
+    <img src="/assets/logo_p6.png" alt="logo" routerLink="/" style="max-width: 150px; max-height: 150px;" />
+  </div>
+  <hr />
+</span>
+<div>
+  <mat-icon onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
+  <div fxHide.gt-sm class="logo-center">
+    <img src="/assets/logo_p6.png" alt="logo" routerLink="/" style="max-width: 200px; max-height: 200px;" />
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <span fxLayout="column" fxLayoutAlign="center center">
+        <h1>Se connecter</h1>
 
-    <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center stretch">
-      <mat-card-content fxLayout="column" fxLayoutGap="20px">
-        <span fxLayout="column" fxLayoutGap="1px">
-          <label>E-mail ou nom d'utilisateur</label>
-          <input class="input-field" formControlName="email">
+      <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <span fxLayout="column" fxLayoutGap="20px">
+          <span fxLayout="column" fxLayoutGap="1px">
+            <label>E-mail ou nom d'utilisateur</label>
+            <input class="input-field" formControlName="email">
+          </span>
+
+          <span fxLayout="column" fxLayoutGap="1px">
+            <label>Mot de passe</label>
+            <input type="password" class="input-field" formControlName="password">
+          </span>
+
         </span>
 
-        <span fxLayout="column" fxLayoutGap="1px">
-          <label>Mot de passe</label>
-          <input type="password" class="input-field" formControlName="password">
-        </span>
+          <button mat-raised-button color="primary" style="width: 100px;" type="submit" >Se connecter</button>
 
-      </mat-card-content>
-
-      <mat-card-actions fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px;">
-        <button mat-raised-button color="primary" type="submit" fxFlex="0 1 100%">Se connecter</button>
-      </mat-card-actions>
-    </form>
-  </span>
+      </form>
+    </span>
+  </div>
 </div>

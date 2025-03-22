@@ -10,6 +10,8 @@ import { SessionService } from './services/session.service';
 })
 export class AppComponent {
   isHomePage: boolean = false;
+  isLoginPage: boolean = false;
+  isRegisterPage: boolean = false;
   isLogged$: Observable<boolean> = of(false);
   constructor(
     private router: Router,
@@ -18,9 +20,11 @@ export class AppComponent {
 
 
   ngOnInit() {
-    // Vérifier la route actuelle lors de l'initialisation
+
     this.router.events.subscribe(() => {
-      this.isHomePage = this.router.url === '/'; // La route d'accueil est '/'
+      this.isHomePage = this.router.url === '/';
+      this.isLoginPage = this.router.url === '/login';
+      this.isRegisterPage = this.router.url === '/register';
     });
     this.isLogged$ = this.$isLogged();
   }
