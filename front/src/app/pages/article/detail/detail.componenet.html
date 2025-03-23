@@ -19,5 +19,20 @@
       {{ article.contenu}}
     </p>
     <hr>
+    <h3>Commentaires</h3>
   </div>
+
+  <form *ngIf="commentaireForm" [formGroup]="commentaireForm" (ngSubmit)="envoyer()" fxLayout="column"
+  fxLayoutAlign="center center" style="width: 50%; margin: auto;">
+
+
+  <mat-form-field appearance="outline" class="full-width">
+    <textarea matInput placeholder="Ecrivez ici votre commentaire" style="height: 100px;"
+      formControlName="commentaire"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="commentaireForm.invalid">
+    Créer
+  </button>
+</form>
 </div>
