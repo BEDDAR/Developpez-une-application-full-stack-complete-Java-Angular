@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="5px" [ngStyle.gt-sm]="'padding: 30px;'"
+  [ngStyle.lt-md]="'padding: 10px;'">
+
+  <mat-icon fxHide.lt-md onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
+
+
+  <div *ngIf="article" [ngClass.gt-sm]="'item'" fxLayout="column" fxLayoutAlign="start">
+    <span fxLayout="row" fxLayoutGap="10px">
+      <mat-icon fxHide.gt-sm onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
+      <h1 *ngIf="article" style="font-size: 30px;">{{ article.titre}}</h1>
+    </span>
+
+    <span fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="30px">
+      <p>{{article.createdAt | date:'YYYY-MM-dd'}}</p>
+      <p>{{article.auteur.userName}}</p>
+      <p>{{article.theme.titre}}</p>
+    </span>
+    <p>
+      {{ article.contenu}}
+    </p>
+    <hr>
+  </div>
+</div>

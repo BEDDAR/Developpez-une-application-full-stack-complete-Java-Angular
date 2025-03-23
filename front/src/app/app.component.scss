@@ -9,7 +9,6 @@
 /* Style des liens */
 .lien {
   text-decoration: none;
-  color: inherit;
 }
 
 /* Configuration du container du mat-drawer */
@@ -28,7 +27,7 @@
 }
 
 .example-sidenav {
-  width: 250px;
+  width: 50%;
   height: 100vh;
   padding: 20px;
   background: white;
@@ -37,5 +36,13 @@
   top: 0;
   right: 0;
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2); /* Effet d'ombre pour bien distinguer le menu */
+}
+
+.items{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 94vh;
+  justify-content: space-between;
 }
 

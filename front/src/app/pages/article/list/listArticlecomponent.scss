@@ -7,9 +7,15 @@
     .item {
       min-width: 500px;
       background-color: #e4e4e4;
+      max-width: 606px;
     }
     .mobile-item {
       background-color: #e4e4e4;
     }
   }
+}
+
+.lien{
+  text-decoration: none;
+  color:inherit;
 }

@@ -1,11 +1,11 @@
 import { ArticleService } from './../../../services/article.service';
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Article } from './../../../interfaces/article.interface'
 
 @Component({
-  selector: 'app-home',
+  selector: 'list-articles',
   templateUrl: './listArticle.component.html',
   styleUrls: ['./listArticlecomponent.scss'],
 })

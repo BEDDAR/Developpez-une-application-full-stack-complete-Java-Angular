@@ -8,7 +8,7 @@
         <a class="lien" routerLink="articles">Articles</a>
         <a class="lien" routerLink="themes">Thèmes</a>
       </div>
-      <mat-icon routerLink="me" class="custom-icon">account_circle</mat-icon>
+      <a class="lien" routerLink="me"> <mat-icon class="custom-icon">account_circle</mat-icon></a>
     </div>
   </div>
   <hr />
@@ -21,11 +21,15 @@
     <mat-sidenav-container autosize [hasBackdrop]="true">
       <!-- Drawer qui glisse de la droite -->
       <mat-sidenav #sidenav class="example-sidenav" mode="side" position="end" (click)="sidenav.close()">
-        <span fxLayout="column" fxLayoutAlign="space-between center" >
-          <a class="lien" style="color: red;" (click)="sidenav.close()">Se déconnecter</a>
-          <a class="lien" routerLink="articles"(click)="sidenav.close()">Articles</a>
-          <a class="lien" routerLink="themes"(click)="sidenav.close()">Thèmes</a>
-          <mat-icon routerLink="me" class="custom-icon"(click)="sidenav.close()">account_circle</mat-icon>
+        <span class="items">
+          <span fxLayout="column" fxLayoutAlign="space-between center">
+            <a class="lien" style="color: red;" (click)="sidenav.close()">Se déconnecter</a>
+            <a class="lien" routerLink="articles" (click)="sidenav.close()">Articles</a>
+            <a class="lien" routerLink="themes" (click)="sidenav.close()">Thèmes</a>
+          </span>
+          <span>
+            <mat-icon routerLink="me" class="custom-icon" (click)="sidenav.close()">account_circle</mat-icon>
+          </span>
         </span>
       </mat-sidenav>
 
