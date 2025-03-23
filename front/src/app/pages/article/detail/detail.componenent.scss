@@ -1,3 +1,7 @@
+.detail {
+  padding-right: 30px;
+}
+
 .item {
   min-width: 500px;
   max-width: 80%;
@@ -18,4 +22,60 @@ hr {
   border: 1px solid black;
   width: 100%;
   margin: 20px 0;
+}
+
+.commentaire-contenu {
+  width: 80%;
+  height: 100px;
+  background-color: rgb(189, 189, 189);
+  border-radius: 20px;
+  color: black;
+  padding: 10px;
+  overflow: auto;
+
+}
+
+.commentaire-contenu-mobile {
+  width: 95%;
+  height: 100px;
+  background-color: rgb(189, 189, 189);
+  border-radius: 20px;
+  color: black;
+  padding: 10px;
+  overflow: auto;
+
+}
+
+.commentaire-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.commentaire-container-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+}
+
+.button {
+  background: none;
+  border: none;
+  padding: 0;
+  min-width: auto;
+}
+
+.icon-custom.mat-icon {
+  height: 45px;
+  width: 45px;
+  transform: rotate(-45deg);
+  font-size: xxx-large;
+}
+
+.textarea-resize, .mat-form-field{
+  height: 100px;
+  width: 80%;
 }

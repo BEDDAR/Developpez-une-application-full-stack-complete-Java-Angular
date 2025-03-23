@@ -18,7 +18,4 @@ export class CommentaireService {
     return this.httpClient.post<Commentaire>(this.pathService, commentaire)
   }
 
-  public getAllCommentaireForArticle(article: Article): Observable<Commentaire[]> {
-    return this.httpClient.get<Commentaire[]>(`${this.pathService}/${article}`)
-  }
 }

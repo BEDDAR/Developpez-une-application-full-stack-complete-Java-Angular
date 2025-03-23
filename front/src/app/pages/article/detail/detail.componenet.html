@@ -1,8 +1,7 @@
-<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="5px" [ngStyle.gt-sm]="'padding: 30px;'"
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="5px" [ngStyle.gt-sm]="'margin-left: 30px;'"
   [ngStyle.lt-md]="'padding: 10px;'">
 
   <mat-icon fxHide.lt-md onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
-
 
   <div *ngIf="article" [ngClass.gt-sm]="'item'" fxLayout="column" fxLayoutAlign="start">
     <span fxLayout="row" fxLayoutGap="10px">
@@ -20,19 +19,27 @@
     </p>
     <hr>
     <h3>Commentaires</h3>
+    <div>
+      <div [ngClass.gt-sm]="'commentaire-container'" [ngClass.lt-sm]="'commentaire-container-mobile'" fxLayoutGap="10px"
+        *ngFor=" let commentaire of (article.commentaires) ">
+        <p>{{commentaire.auteur.userName}}</p>
+        <div [ngClass.lt-md]="'commentaire-contenu-mobile'" [ngClass.gt-sm]="'commentaire-contenu'">
+          {{commentaire.contenu}}
+        </div>
+      </div>
+      <form *ngIf="commentaireForm" [formGroup]="commentaireForm" (ngSubmit)="envoyer()" fxLayoutGap="10px"
+        style="width: 100%;">
+        <mat-form-field appearance="outline">
+          <textarea class="textarea-resize" matInput placeholder="Ecrivez ici votre commentaire"
+            formControlName="contenu"></textarea>
+        </mat-form-field>
+        <button type="submit" mat-icon-button>
+          <mat-icon class="icon-custom" color="primary">send</mat-icon>
+        </button>
+      </form>
+    </div>
   </div>
 
-  <form *ngIf="commentaireForm" [formGroup]="commentaireForm" (ngSubmit)="envoyer()" fxLayout="column"
-  fxLayoutAlign="center center" style="width: 50%; margin: auto;">
 
 
-  <mat-form-field appearance="outline" class="full-width">
-    <textarea matInput placeholder="Ecrivez ici votre commentaire" style="height: 100px;"
-      formControlName="commentaire"></textarea>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit" [disabled]="commentaireForm.invalid">
-    Créer
-  </button>
-</form>
 </div>

@@ -1,5 +1,6 @@
 package com.openclassrooms.mddapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedDate;
@@ -35,6 +36,7 @@ public class Commentaire {
     private User auteur;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "article_id", nullable = false)
     private Article article;
 

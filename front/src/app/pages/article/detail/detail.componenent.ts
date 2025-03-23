@@ -1,6 +1,7 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SessionService } from './../../../services/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Article } from 'src/app/interfaces/article.interface';
 import { ArticleService } from 'src/app/services/article.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -14,6 +15,7 @@ import { CommentaireService } from 'src/app/services/commentaire.service';
   selector: 'app-home',
   templateUrl: './detail.componenet.html',
   styleUrls: ['./detail.componenent.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ArticleDetailComponent implements OnInit {
   private id_article: string | null = '';
@@ -26,37 +28,43 @@ export class ArticleDetailComponent implements OnInit {
     private fb: FormBuilder,
     private sessionService: SessionService,
     private userService: UserService,
-    private commentaireService: CommentaireService) { }
+    private commentaireService: CommentaireService,
+    private matSnackBar: MatSnackBar) { }
 
   public ngOnInit(): void {
     this.id_article = this.router.snapshot.paramMap.get('id');
     if (this.id_article) {
       this.articleService.getArticle(this.id_article).subscribe((article) => this.article = article)
     }
-
     let auteur_id = this.sessionService.sessionInformation?.id
     if (auteur_id) {
       this.userService.getById(auteur_id.toString()).subscribe(user => {
         this.auteur = user;
       });
     }
+    this.initForm()
   }
 
-  public envoyer(): Observable<Commentaire> {
-    let commentaire = this.commentaireForm?.value as Commentaire
+  public envoyer(): void {
+    const commentaire = this.commentaireForm?.value as Commentaire
     if (this.auteur) {
       commentaire.auteur = this.auteur;
     }
 
     if (this.article) {
       commentaire.article = this.article
+      this.commentaireService.envoyerCommentaire(commentaire)
+        .subscribe((_: Commentaire) =>
+          this.matSnackBar.open('Ton commentaire est bien enregistré', 'Close', { duration: 3000 }))
     }
-    return this.commentaireService.envoyerCommentaire(commentaire)
+
+    console.log(commentaire, this.commentaireForm)
+
 
   }
-  public initForm(commentaire: Commentaire) {
+  public initForm(commentaire?: Commentaire): void {
     this.commentaireForm = this.fb.group({
-      commentaire: [commentaire ? commentaire.contenu : '']
+      contenu: [commentaire ? commentaire.contenu : '']
     })
   }
 
