@@ -3,7 +3,7 @@
 
   <mat-icon fxHide.lt-md onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
 
-  <div *ngIf="article" [ngClass.gt-sm]="'item'" fxLayout="column" fxLayoutAlign="start">
+  <div *ngIf="article" [ngClass.gt-sm]="'detail'" fxLayout="column" fxLayoutAlign="start">
     <span fxLayout="row" fxLayoutGap="10px">
       <mat-icon fxHide.gt-sm onclick="history.back()" class="custom-icon">keyboard_backspace</mat-icon>
       <h1 *ngIf="article" style="font-size: 30px;">{{ article.titre}}</h1>
@@ -19,7 +19,8 @@
     </p>
     <hr>
     <h3>Commentaires</h3>
-    <div fxLayout="column" fxFlexAlign="end end" [ngClass.gt-sm]="'Liste-commentaire'" ngClass.lt-md="'Liste-commentaire-mobile'">
+    <div fxLayout="column" fxFlexAlign="end end" [ngClass.gt-sm]="'Liste-commentaire'"
+      ngClass.lt-md="'Liste-commentaire-mobile'">
       <div [ngClass.gt-sm]="'commentaire-container'" [ngClass.lt-sm]="'commentaire-container-mobile'"
         *ngFor=" let commentaire of (article.commentaires) ">
         <p>{{commentaire.auteur.userName}}</p>
@@ -30,13 +31,14 @@
     </div>
     <div style="width: 100%;">
       <form *ngIf="commentaireForm" [formGroup]="commentaireForm" (ngSubmit)="envoyer()" class="champs-commentaire">
-        <mat-form-field appearance="outline">
-          <textarea matInput class="textarea-resize"
-            placeholder="Ecrivez ici votre commentaire" formControlName="contenu"></textarea>
+        <mat-form-field class="custom-textarea" appearance="outline">
+          <textarea matInput placeholder="Ecrivez ici votre commentaire" formControlName="contenu"></textarea>
         </mat-form-field>
-        <button type="submit" mat-icon-button>
-          <mat-icon class="icon-custom" color="primary">send</mat-icon>
-        </button>
+        <div class="icon-aligne">
+          <button type="submit" mat-icon-button>
+            <mat-icon class="icon-custom" color="primary">send</mat-icon>
+          </button>
+        </div>
       </form>
     </div>
   </div>

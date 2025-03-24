@@ -7,7 +7,7 @@
     </span>
   </div>
 
-  <div class="items" fxLayout="row wrap" fxLayout.lt-md="column">
+  <div class="items" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center">
     <mat-card [ngClass.lt-md]="'mobile-item'" [ngClass.gt-sm]="'item'" *ngFor="let article of (articles$ | async)"
       fxFlex>
       <a class="lien"  [routerLink]="['/article', article.id]">
@@ -15,8 +15,8 @@
           <mat-card-title>{{ article.titre }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <span fxLayout="row nowrap">
-            <p style="margin-right:40% ;">{{article.createdAt | date:'YYYY-MM-dd'}}</p>
+          <span fxLayout="row nowrap" fxLayoutGap="40px">
+            <p>{{article.createdAt | date:'YYYY-MM-dd'}}</p>
             <p>{{article.auteur.userName}}</p>
           </span>
           <p>

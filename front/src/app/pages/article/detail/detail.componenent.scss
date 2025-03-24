@@ -1,4 +1,4 @@
-.item {
+.detail {
   min-width: 500px;
   margin-left: 5%;
   margin-right: 5%;
@@ -60,19 +60,22 @@ hr {
   flex-direction: column;
   align-items: end;
   width: 100%;
-  gap: 10px;
+  margin-bottom: 15px;
+
+  p {
+    margin: 0px;
+  }
 }
 
-.Liste-commentaire{
+.Liste-commentaire {
   width: 80%;
   height: 500px;
   overflow: auto;
   margin-bottom: 10px;
 }
 
-.Liste-commentaire-mobile{
+.Liste-commentaire-mobile {
   width: 100%;
-  margin-bottom: 10px;
 }
 
 .button {
@@ -86,19 +89,31 @@ hr {
 .icon-custom.mat-icon {
   height: 50px;
   width: 50px;
-  transform: rotate(-45deg);
-  font-size: 260%;
+  font-size: 350%;
+  display: table-cell;
 }
 
-.mat-form-field{
-  min-width:80%;
-  min-height: 100%;
+.custom-textarea {
+  width: 80%;
+  height: 100%;
 }
 
-.champs-commentaire{
+.custom-textarea textarea {
+  width: 100%;
+  height: 100px;
+}
+
+
+.champs-commentaire {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+}
 
+.icon-aligne {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+  padding: 20px;
 }
