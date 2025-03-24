@@ -14,8 +14,8 @@ export class CommentaireService {
 
   private pathService: string = "/api/commentaire"
 
-  public envoyerCommentaire(commentaire: Commentaire): Observable<Commentaire> {
-    return this.httpClient.post<Commentaire>(this.pathService, commentaire)
+  public envoyerCommentaire(commentaire: Commentaire): Observable<void> {
+    return this.httpClient.post<void>(this.pathService, commentaire)
   }
 
 }

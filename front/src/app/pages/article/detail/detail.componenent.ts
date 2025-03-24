@@ -33,6 +33,7 @@ export class ArticleDetailComponent implements OnInit {
 
   public ngOnInit(): void {
     this.id_article = this.router.snapshot.paramMap.get('id');
+    console.log("idArticle", this.id_article)
     if (this.id_article) {
       this.articleService.getArticle(this.id_article).subscribe((article) => this.article = article)
     }
@@ -45,22 +46,20 @@ export class ArticleDetailComponent implements OnInit {
     this.initForm()
   }
 
-  public envoyer(): void {
+  public envoyer():void {
     const commentaire = this.commentaireForm?.value as Commentaire
     if (this.auteur) {
       commentaire.auteur = this.auteur;
     }
 
     if (this.article) {
+console.log(this.article)
       commentaire.article = this.article
       this.commentaireService.envoyerCommentaire(commentaire)
-        .subscribe((_: Commentaire) =>
+        .subscribe((_) =>
           this.matSnackBar.open('Ton commentaire est bien enregistré', 'Close', { duration: 3000 }))
     }
-
     console.log(commentaire, this.commentaireForm)
-
-
   }
   public initForm(commentaire?: Commentaire): void {
     this.commentaireForm = this.fb.group({

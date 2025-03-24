@@ -1,7 +1,9 @@
-package com.openclassrooms.mddapi.models;
+package com.openclassrooms.mddapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.openclassrooms.mddapi.models.Article;
+import com.openclassrooms.mddapi.models.User;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,35 +14,24 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "Commentaires")
-@EntityListeners(AuditingEntityListener.class)
+
+
 @Data
-@Accessors(chain = true)
-@EqualsAndHashCode(of = {"id"})
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Commentaire {
+public class CommentaireDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
     @NotNull
     @Size(max = 2500)
     private String contenu;
 
-    @OneToOne
-    @JoinColumn(name = "auteur_id", referencedColumnName = "id")
     private User auteur;
 
-    @ManyToOne
-    @JoinColumn(name = "article_id", nullable = false)
+    @JsonIgnore
     private Article article;
 
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 }

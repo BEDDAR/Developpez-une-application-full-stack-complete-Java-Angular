@@ -1,5 +1,7 @@
 package com.openclassrooms.mddapi.controllers;
 
+import com.openclassrooms.mddapi.dto.CommentaireDto;
+import com.openclassrooms.mddapi.mappers.CommentaireMapper;
 import com.openclassrooms.mddapi.models.Article;
 import com.openclassrooms.mddapi.models.Commentaire;
 import com.openclassrooms.mddapi.services.CommentaireService;
@@ -15,14 +17,17 @@ import java.util.List;
 public class CommentaireController {
 
     private CommentaireService commentaireService;
+    private CommentaireMapper commentaireMapper;
 
-    public CommentaireController(CommentaireService commentaireService) {
+    public CommentaireController(CommentaireService commentaireService,CommentaireMapper commentaireMapper) {
         this.commentaireService = commentaireService;
+        this.commentaireMapper=commentaireMapper;
     }
 
    @PostMapping
-   public ResponseEntity<Commentaire> create (@Valid @RequestBody Commentaire commentaire){
+   public ResponseEntity<CommentaireDto> create (@Valid @RequestBody Commentaire commentaire){
        System.out.println(commentaire);
-        return  ResponseEntity.ok(this.commentaireService.create(commentaire));
+       Commentaire commentaireCree= this.commentaireService.create(commentaire);
+        return  ResponseEntity.ok().body(this.commentaireMapper.toDto(commentaireCree));
    }
 }
