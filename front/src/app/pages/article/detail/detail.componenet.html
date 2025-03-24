@@ -19,19 +19,20 @@
     </p>
     <hr>
     <h3>Commentaires</h3>
-    <div>
-      <div [ngClass.gt-sm]="'commentaire-container'" [ngClass.lt-sm]="'commentaire-container-mobile'" fxLayoutGap="10px"
+    <div fxLayout="column" fxFlexAlign="end end" [ngClass.gt-sm]="'Liste-commentaire'" ngClass.lt-md="'Liste-commentaire-mobile'">
+      <div [ngClass.gt-sm]="'commentaire-container'" [ngClass.lt-sm]="'commentaire-container-mobile'"
         *ngFor=" let commentaire of (article.commentaires) ">
         <p>{{commentaire.auteur.userName}}</p>
         <div [ngClass.lt-md]="'commentaire-contenu-mobile'" [ngClass.gt-sm]="'commentaire-contenu'">
           {{commentaire.contenu}}
         </div>
       </div>
-      <form *ngIf="commentaireForm" [formGroup]="commentaireForm" (ngSubmit)="envoyer()" fxLayoutGap="10px"
-        style="width: 100%;">
+    </div>
+    <div style="width: 100%;">
+      <form *ngIf="commentaireForm" [formGroup]="commentaireForm" (ngSubmit)="envoyer()" class="champs-commentaire">
         <mat-form-field appearance="outline">
-          <textarea class="textarea-resize" matInput placeholder="Ecrivez ici votre commentaire"
-            formControlName="contenu"></textarea>
+          <textarea matInput class="textarea-resize"
+            placeholder="Ecrivez ici votre commentaire" formControlName="contenu"></textarea>
         </mat-form-field>
         <button type="submit" mat-icon-button>
           <mat-icon class="icon-custom" color="primary">send</mat-icon>

@@ -2,8 +2,10 @@ package com.openclassrooms.mddapi.mappers;
 
 import com.openclassrooms.mddapi.dto.ArticleDto;
 import com.openclassrooms.mddapi.dto.CommentaireDto;
+import com.openclassrooms.mddapi.dto.UserDto;
 import com.openclassrooms.mddapi.models.Article;
 import com.openclassrooms.mddapi.models.Commentaire;
+import com.openclassrooms.mddapi.models.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -17,7 +19,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring",uses = {UserMapper.class, CommentaireMapper.class})
 public abstract class ArticleMapper implements EntityMapper<ArticleDto, Article> {
 
     @Autowired
@@ -26,20 +28,29 @@ public abstract class ArticleMapper implements EntityMapper<ArticleDto, Article>
     @Autowired
     UserMapper userMapper;
 
+    @Named("auteurDto")
+    public UserDto auteurDto(User auteur) {
+        return this.userMapper.toDto(auteur);
+    }
+
     @Named("commentairToDto")
-    public List<CommentaireDto> commentairToDto(List<Commentaire> commentaires ){
-        if (!commentaires.isEmpty()){
-        return commentaires.stream()
-                .map(commentaire ->{ return this.commentaireMapper.toDto(commentaire);})
-                .collect(Collectors.toList());}
+    public List<CommentaireDto> commentairToDto(List<Commentaire> commentaires) {
+        if (!commentaires.isEmpty()) {
+            return commentaires.stream()
+                    .map(commentaire -> {
+                        return this.commentaireMapper.toDto(commentaire);
+                    })
+                    .collect(Collectors.toList());
+        }
         return null;
     }
+
     @Mappings({
             @Mapping(source = "titre", target = "titre"),
             @Mapping(source = "contenu", target = "contenu"),
             @Mapping(source = "theme", target = "theme"),
-            @Mapping(source = "auteur", target = "auteur"),
-            @Mapping(target = "commentaires", source = "commentaires",qualifiedByName ="commentairToDto"),
+            @Mapping(target = "auteur",source = "auteur", qualifiedByName = "auteurDto"),
+            @Mapping(target = "commentaires", source = "commentaires", qualifiedByName = "commentairToDto"),
     })
     public abstract ArticleDto toDto(Article article);
 }

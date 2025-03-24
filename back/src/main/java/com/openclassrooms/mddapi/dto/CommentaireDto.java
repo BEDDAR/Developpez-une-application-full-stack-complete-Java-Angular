@@ -28,7 +28,7 @@ public class CommentaireDto {
     @Size(max = 2500)
     private String contenu;
 
-    private User auteur;
+    private UserDto auteur;
 
     @JsonIgnore
     private Article article;

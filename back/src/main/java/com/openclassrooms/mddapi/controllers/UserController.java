@@ -45,35 +45,14 @@ public class UserController {
     public ResponseEntity<?> updateUser(@PathVariable("id") String id, @RequestBody UpdetedUserRequest updatedUser) {
 
             User updated = userService.updateUser(id, updatedUser);
-            return ResponseEntity.ok(updated);
+            return ResponseEntity.ok(this.userMapper.toDto(updated));
     }
 
     @PutMapping("/desabonner/{id}")
     public ResponseEntity<?> desabonnerUser(@PathVariable("id") String id, @RequestBody UpdetedUserRequest updatedUser) {
 
         User updated = userService.desabonnerUser(id, updatedUser);
-        return ResponseEntity.ok(updated);
+        return ResponseEntity.ok(this.userMapper.toDto(updated));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") String id) {
-        try {
-            User user = this.userService.findById(Long.valueOf(id));
-
-            if (user == null) {
-                return ResponseEntity.notFound().build();
-            }
-
-            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-            if (!Objects.equals(userDetails.getUsername(), user.getEmail())) {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-            }
-
-            this.userService.delete(Long.parseLong(id));
-            return ResponseEntity.ok().build();
-        } catch (NumberFormatException e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
 }
