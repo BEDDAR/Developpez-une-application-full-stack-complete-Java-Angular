@@ -57,6 +57,9 @@ export class ArticleDetailComponent implements OnInit {
       this.commentaireService.envoyerCommentaire(commentaire)
         .subscribe((_) =>
           this.matSnackBar.open('Ton commentaire est bien enregistré', 'Close', { duration: 3000 }))
+      if (this.id_article) {
+        this.articleService.getArticle(this.id_article).subscribe((article) => this.article = article)
+      }
     }
   }
 
