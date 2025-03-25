@@ -1,5 +1,6 @@
 .detail {
   min-width: 500px;
+  width: 100%;
   margin-left: 5%;
   margin-right: 5%;
   //padding-left: 65px;
@@ -69,7 +70,6 @@ hr {
 
 .Liste-commentaire {
   width: 80%;
-  height: 500px;
   overflow: auto;
   margin-bottom: 10px;
 }
