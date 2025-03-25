@@ -9,7 +9,7 @@ import { ThemeListComponent } from './pages/theme/theme.component';
 import { ArticleListComponent } from './pages/article/list/listArticle.component'
 import { ArticleformComponent } from './pages/article/formArticle/formArticle.componenet'
 import { ArticleDetailComponent } from './pages/article/detail/detail.componenent'
-import { MeComponent } from './components/me/me.component';
+import { MeComponent } from './pages/me/me.component';
 import { NotFoundComponent } from './pages/notFound/notFound.component'
 
 // consider a guard combined with canLoad / canActivate route option

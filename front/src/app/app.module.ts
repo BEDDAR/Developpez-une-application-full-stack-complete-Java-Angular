@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ArticleListComponent } from './pages/article/list/listArticle.component'
 import { ArticleformComponent } from './pages/article/formArticle/formArticle.componenet'
 import { ArticleDetailComponent } from './pages/article/detail/detail.componenent'
-import { MeComponent } from './components/me/me.component';
+import { MeComponent } from './pages/me/me.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NotFoundComponent } from './pages/notFound/notFound.component'

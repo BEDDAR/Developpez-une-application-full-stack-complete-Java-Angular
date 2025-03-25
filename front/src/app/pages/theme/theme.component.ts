@@ -40,7 +40,7 @@ export class ThemeListComponent implements OnInit {
     const idUser = this.sessionService.sessionInformation?.id;
     if (!idUser) return;
 
-    this.userService.update(idUser, theme).subscribe((_: User) => {
+    this.userService.abonner(idUser, theme).subscribe((_: User) => {
       this.userThemesSet.add(theme.id); // Ajoute immédiatement dans le Set
       this.matSnackBar.open('Abonnement réussi', 'Fermer', { duration: 3000 });
     });

@@ -18,11 +18,11 @@ export class UserService {
     return this.httpClient.get<User>(`${this.pathService}/${id}`);
   }
 
-  public delete(id: string): Observable<any> {
-    return this.httpClient.delete(`${this.pathService}/${id}`);
+  public update(id: number,user:User): Observable<User> {
+    return this.httpClient.put<User>(`${this.pathService}/${id}`,user);
   }
 
-  public update(id:number|undefined,theme:Theme): Observable<any> {
+  public abonner(id:number|undefined,theme:Theme): Observable<any> {
     return this.httpClient.put(`${this.pathService}/${id}`, {"theme":theme})
   }
 

@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutAlign="center center" style="margin-top:30px;">
+  <span fxLayout="column" fxLayoutAlign="center center">
+    <h1>Profil Utilisateur</h1>
+
+    <form *ngIf="formMe" [formGroup]="formMe" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center"
+      fxLayoutGap="10px">
+      <span fxLayout="column" fxLayoutGap="20px">
+        <input color="primary" class="input-field" formControlName="userName">
+        <input class="input-field" formControlName="email">
+        <input type="password" class="input-field" formControlName="password">
+      </span>
+
+      <button mat-raised-button color="primary" style="width: 120px;" type="submit">Sauvegarder</button>
+
+    </form>
+  </span>
+  <div class="list">
+    <hr style="width: 80%">
+    <h1>Abonnements</h1>
+    <div class="items" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutAlign="center">
+      <mat-card [ngClass.lt-md]="'mobile-item'" [ngClass.gt-sm]="'item'" *ngFor="let theme of (userThemesSet)" fxFlex>
+        <mat-card-header>
+          <mat-card-title>{{ theme.titre }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{ theme.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center">
+          <button mat-raised-button color="primary" (click)="desabonner(theme)">Se désabonner </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
