@@ -23,8 +23,9 @@ import { ArticleListComponent } from './pages/article/list/listArticle.component
 import { ArticleformComponent } from './pages/article/formArticle/formArticle.componenet'
 import { ArticleDetailComponent } from './pages/article/detail/detail.componenent'
 import { MeComponent } from './components/me/me.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NotFoundComponent } from './pages/notFound/notFound.component'
 
 const materialModule = [
   MatButtonModule,
@@ -40,7 +41,7 @@ const materialModule = [
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent, ThemeListComponent, ArticleListComponent
-    , ArticleformComponent, ArticleDetailComponent, MeComponent
+    , ArticleformComponent, ArticleDetailComponent, MeComponent, NotFoundComponent
   ],
   imports: [
     BrowserModule,
