@@ -2,12 +2,9 @@ package com.openclassrooms.mddapi.controllers;
 
 import com.openclassrooms.mddapi.mappers.UserMapper;
 import com.openclassrooms.mddapi.models.User;
-import com.openclassrooms.mddapi.payload.request.UpdetedUserRequest;
+import com.openclassrooms.mddapi.payload.request.UpdetedThemeUserRequest;
 import com.openclassrooms.mddapi.services.UserService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
@@ -42,17 +39,22 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable("id") String id, @RequestBody UpdetedUserRequest updatedUser) {
+    public ResponseEntity<?> updateUser(@PathVariable("id") String id, @RequestBody UpdetedThemeUserRequest updatedUser) {
 
-            User updated = userService.updateUser(id, updatedUser);
+            User updated = userService.sabonner(id, updatedUser);
             return ResponseEntity.ok(this.userMapper.toDto(updated));
     }
 
     @PutMapping("/desabonner/{id}")
-    public ResponseEntity<?> desabonnerUser(@PathVariable("id") String id, @RequestBody UpdetedUserRequest updatedUser) {
+    public ResponseEntity<?> desabonnerUser(@PathVariable("id") String id, @RequestBody UpdetedThemeUserRequest updatedUser) {
 
         User updated = userService.desabonnerUser(id, updatedUser);
         return ResponseEntity.ok(this.userMapper.toDto(updated));
     }
+
+     @PutMapping
+    public ResponseEntity<?> update(@RequestBody User user){
+        return ResponseEntity.ok(this.userMapper.toDto(this.userService.update(user)));
+     }
 
 }

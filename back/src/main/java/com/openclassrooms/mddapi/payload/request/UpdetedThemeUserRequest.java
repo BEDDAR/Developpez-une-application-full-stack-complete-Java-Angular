@@ -10,7 +10,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdetedUserRequest {
+public class UpdetedThemeUserRequest {
 
     private Theme theme;
 }

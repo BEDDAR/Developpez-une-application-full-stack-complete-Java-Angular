@@ -18,8 +18,8 @@ export class UserService {
     return this.httpClient.get<User>(`${this.pathService}/${id}`);
   }
 
-  public update(id: number,user:User): Observable<User> {
-    return this.httpClient.put<User>(`${this.pathService}/${id}`,user);
+  public update(user:User): Observable<User> {
+    return this.httpClient.put<User>(this.pathService,user);
   }
 
   public abonner(id:number|undefined,theme:Theme): Observable<any> {

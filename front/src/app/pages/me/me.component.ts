@@ -1,3 +1,4 @@
+import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
 import { ThemeService } from './../../services/theme.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,14 +20,14 @@ export class MeComponent implements OnInit {
 
   public user: User | undefined;
   public formMe: FormGroup | undefined;
-  public userThemesSet =new Set<Theme>();
+  public userThemesSet = new Set<Theme>();
 
   constructor(private router: Router,
     private sessionService: SessionService,
     private matSnackBar: MatSnackBar,
     private userService: UserService,
     private fb: FormBuilder,
-  private themeService:ThemeService) {
+    private themeService: ThemeService) {
   }
 
   public ngOnInit(): void {
@@ -53,8 +54,10 @@ export class MeComponent implements OnInit {
   public submit(): void {
     const user = this.formMe?.value as User;
 
-    if (this.user) {
-      this.userService.update(this.user?.id, user)
+    if (this.user && this.sessionService.sessionInformation?.id) {
+      user.id = this.sessionService.sessionInformation?.id
+      console.log(user)
+      this.userService.update(user)
         .subscribe((_: User) => {
           this.matSnackBar.open("Tes nouvelles informations sont bien enregistrées !", 'Close', { duration: 3000 });
         })
