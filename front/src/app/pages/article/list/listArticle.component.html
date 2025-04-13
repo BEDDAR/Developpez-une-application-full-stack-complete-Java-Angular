@@ -1,9 +1,9 @@
 <div fxLayout="column nowrap" class="list" fxLayoutGap="20px">
   <div fxLayout="row nowrap" fxLayout.lt-md="column" fxLayoutAlign="space-between center" fxLayoutGap.lt-sm="20px">
     <button mat-raised-button color="primary" (click)="navigate()">Créeer un article</button>
-    <span fxLayout="row nowrap">
+    <span fxLayout="row nowrap" style="cursor: pointer;" (click)="toggleTri()">
       <p><strong>Trier par</strong></p>
-      <mat-icon>arrow_downward</mat-icon>
+      <mat-icon>{{ triRecent ? 'arrow_downward' : 'arrow_upward' }}</mat-icon>
     </span>
   </div>
 

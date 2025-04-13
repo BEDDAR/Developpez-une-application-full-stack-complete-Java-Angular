@@ -32,8 +32,10 @@ export class RegisterComponent {
       '',
       [
         Validators.required,
-        Validators.min(3),
-        Validators.max(40)
+        Validators.minLength(8),
+        Validators.pattern(
+          '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$'
+        )
       ]
     ]
   });
