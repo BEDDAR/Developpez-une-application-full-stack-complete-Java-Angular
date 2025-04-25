@@ -23,8 +23,8 @@ private ArticleMapper articleMapper;
     }
 
     @PostMapping
-    public ResponseEntity<ArticleDto> create(@Valid @RequestBody Article article) {
-        return ResponseEntity.ok(this.articleMapper.toDto(this.articleService.createArticle(article)));
+    public ResponseEntity<Article> create(@Valid @RequestBody Article article) {
+        return ResponseEntity.ok(this.articleService.createArticle(article));
     }
 
     @GetMapping

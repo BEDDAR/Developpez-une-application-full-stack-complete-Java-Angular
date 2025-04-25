@@ -16,18 +16,17 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
+
     private Long id;
 
-    @NonNull
     @Size(max = 50)
     @Email
     private String email;
 
-    @NonNull
+
     @Size(max = 20)
     private String userName;
 
-    @NonNull
     private boolean admin;
 
     @JsonIgnore

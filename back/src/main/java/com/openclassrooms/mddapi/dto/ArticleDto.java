@@ -30,7 +30,7 @@ public class ArticleDto {
     @Size(max = 2500)
     private String contenu;
 
-    private User auteur;
+    private UserDto auteur;
 
     @NotNull
     private Theme theme;

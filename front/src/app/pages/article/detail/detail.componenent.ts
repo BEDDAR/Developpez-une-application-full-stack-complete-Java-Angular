@@ -52,14 +52,17 @@ export class ArticleDetailComponent implements OnInit {
     }
 
     if (this.article) {
-      console.log(this.article)
       commentaire.article = this.article
       this.commentaireService.envoyerCommentaire(commentaire)
-        .subscribe((_) =>
-          this.matSnackBar.open('Ton commentaire est bien enregistré', 'Close', { duration: 3000 }))
-      if (this.id_article) {
-        this.articleService.getArticle(this.id_article).subscribe((article) => this.article = article)
-      }
+        .subscribe((_) =>{
+          if (this.article) {
+            // Si this.article est défini, tu peux l'utiliser ici
+            this.article.commentaires = [...this.article.commentaires, commentaire];
+          }
+          this.matSnackBar.open('Ton commentaire est bien enregistré', 'Close', { duration: 3000 })
+        }
+
+      )
     }
   }
 

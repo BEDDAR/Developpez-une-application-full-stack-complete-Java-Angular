@@ -25,12 +25,9 @@ public abstract class ArticleMapper implements EntityMapper<ArticleDto, Article>
     @Autowired
     CommentaireMapper commentaireMapper;
 
-    @Autowired
-    UserMapper userMapper;
-
-    @Named("auteurDto")
-    public UserDto auteurDto(User auteur) {
-        return this.userMapper.toDto(auteur);
+    @Named("toAuteurDto")
+    public UserDto auteurToDto(User auteur){
+        return this.commentaireMapper.auteurToDto(auteur);
     }
 
     @Named("commentairToDto")
@@ -49,7 +46,7 @@ public abstract class ArticleMapper implements EntityMapper<ArticleDto, Article>
             @Mapping(source = "titre", target = "titre"),
             @Mapping(source = "contenu", target = "contenu"),
             @Mapping(source = "theme", target = "theme"),
-            @Mapping(target = "auteur",source = "auteur", qualifiedByName = "auteurDto"),
+            @Mapping(target = "auteur",source = "auteur", qualifiedByName = "toAuteurDto"),
             @Mapping(target = "commentaires", source = "commentaires", qualifiedByName = "commentairToDto"),
     })
     public abstract ArticleDto toDto(Article article);

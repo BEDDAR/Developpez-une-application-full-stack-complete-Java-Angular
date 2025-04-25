@@ -42,7 +42,7 @@ export class ArticleformComponent implements OnInit {
     article.auteur = this.auteur,
       console.log(article)
     this.artcileService.create(article)
-      .subscribe((_: Article) => this.matSnackBar.open('Article bien créé', 'Close', { duration: 3000 }))
+      .subscribe((_) => this.matSnackBar.open('Article bien créé', 'Close', { duration: 3000 }))
 
   }
 
